@@ -29,9 +29,9 @@
       </license>
     </licenses>-->
     <scm>
-      <url>scm:git:git@github.com:thymeleaf/thymeleafexamples-layouts.git</url>
-      <connection>scm:git:git@github.com:thymeleaf/thymeleafexamples-layouts.git</connection>
-      <developerConnection>scm:git:git@github.com:thymeleaf/thymeleafexamples-layouts.git</developerConnection>
+      <url>scm:git:git@github.com:arulprakashs/thlayouts.git</url>
+      <connection>scm:git@github.com:arulprakashs/thlayouts.git</connection>
+      <developerConnection>scm:git:git@github.com:arulprakashs/thlayouts.git</developerConnection>
     </scm> 
     <repositories>
         <repository>
