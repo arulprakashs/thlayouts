@@ -2,6 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
+	
+	<!-- Set Favourites Icon MIME-Type -->
+	<mime-mapping>
+	<extension>ico</extension>
+	
+	<mime-type>image/x-icon</mime-type>
+	</mime-mapping>
+
 	<!-- Map all errors to Spring MVC handler method. See CustomErrorController.generalError() -->
 	<error-page>
     	<location>/generalError</location>

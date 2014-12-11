@@ -112,7 +112,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     @Bean
     public ThymeleafTilesConfigurer tilesConfigurer() {
         ThymeleafTilesConfigurer ttc = new ThymeleafTilesConfigurer();
-        ttc.setDefinitions(new String[]{"/WEB-INF/views/message/tiles-defs.xml"});
+        ttc.setDefinitions(new String[]{"/WEB-INF/tiles-defs.xml"});
         return ttc;
     }
 
