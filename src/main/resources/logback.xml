@@ -27,7 +27,7 @@
 	    <cyclicBufferTracker class="ch.qos.logback.core.spi.CyclicBufferTracker">
             <bufferSize>10</bufferSize>
         </cyclicBufferTracker>
-        
+        <asynchronousSending>false</asynchronousSending>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
 	        <level>WARN</level>
 	        <onMatch>ACCEPT</onMatch>
