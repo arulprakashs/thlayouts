@@ -1,7 +1,9 @@
 package com.pos.account;
 
+import com.pos.home.ContactController;
 import java.security.Principal;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 class AccountController {
 
     private AccountRepository accountRepository;
-
+    public static Logger logger = LoggerFactory.getLogger(AccountController.class);
+    
     @Autowired
     public AccountController(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
