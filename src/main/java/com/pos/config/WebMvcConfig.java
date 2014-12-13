@@ -78,6 +78,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         templateEngine.addDialect(new SpringSecurityDialect());
         templateEngine.addDialect(new TilesDialect());
         templateEngine.addDialect(new LayoutDialect());
+        templateEngine.addDialect(new LayoutDialect());
         return templateEngine;
     }
 

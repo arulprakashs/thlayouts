@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body {
+	background-color: lightgrey; 
+	font-family: 'Open Sans', sans-serif; 
+}
+
+header {
+	font-size: 1.5em;
+}
+
+footer {
+	text-align: right;
+}
+
+body {
+	> header {
+		margin: 3em 0 5em;
+	}
+	> footer {
+		padding-right: 2.5em;
+	}
+}
+
+
+/* Blog page */
+/* --------- */
+
+#blog {
+	margin: 2em auto;
+	max-width: 50em;
+}
+
+.post {
+	background-color: white;
+	border-right: 0.5em solid #99cc33;
+	margin-bottom: 5em;
+	margin-left: -20em;
+	padding: 1em 2em 4em 21em;
+
+	header {
+		font-style: italic;
+	}
+	.info {
+		color: grey;
+		margin-bottom: 2em;
+	}
+	.content {
+		margin-bottom: 2em;
+		text-align: justify;
+	}
+	footer {
+		color: grey;
+	}
+}
