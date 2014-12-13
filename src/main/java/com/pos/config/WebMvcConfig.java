@@ -3,7 +3,6 @@ package com.pos.config;
 import static org.springframework.context.annotation.ComponentScan.Filter;
 import com.google.common.collect.Lists;
 import com.pos.Application;
-import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -77,8 +76,8 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         templateEngine.addTemplateResolver(urlTemplateResolver());
         templateEngine.addDialect(new SpringSecurityDialect());
         templateEngine.addDialect(new TilesDialect());
-        templateEngine.addDialect(new LayoutDialect());
-        templateEngine.addDialect(new LayoutDialect());
+        /*templateEngine.addDialect(new LayoutDialect());*/
+        templateEngine.addDialect(new com.pos.dialect.PresentationDialect());
         return templateEngine;
     }
 

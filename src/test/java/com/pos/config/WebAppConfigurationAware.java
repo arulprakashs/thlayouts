@@ -19,7 +19,7 @@ import javax.inject.Inject;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("test")
 @WebAppConfiguration
-//@ContextConfiguration(classes = {ApplicationConfig.class, EmbeddedDataSourceConfig.class, JpaConfig.class, SecurityConfig.class, WebMvcConfig.class})
+@ContextConfiguration(classes = {ApplicationConfig.class, EmbeddedDataSourceConfig.class, JpaConfig.class, SecurityConfig.class, WebMvcConfig.class})
 public abstract class WebAppConfigurationAware {
 
     @Inject
