@@ -1,6 +1,7 @@
-package com.pos.account;
+package com.pos.controllers;
 
-import com.pos.home.ContactController;
+import com.pos.account.Account;
+import com.pos.account.AccountRepository;
 import java.security.Principal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

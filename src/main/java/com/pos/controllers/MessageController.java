@@ -1,7 +1,9 @@
-package com.pos.message;
+package com.pos.controllers;
 
 import com.pos.account.Account;
 import com.pos.account.AccountRepository;
+import com.pos.message.Message;
+import com.pos.message.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;

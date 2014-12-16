@@ -3,14 +3,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.singtel</groupId>
+    <groupId>com.pos</groupId>
     <artifactId>thlayouts</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
     <name>thymeleaf</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java-version>1.8</java-version>
+        <java-version>1.7</java-version>
         <org.springframework-version>4.0.0.RELEASE</org.springframework-version>
         <org.springframework.security-version>3.2.0.RELEASE</org.springframework.security-version>
         <org.aspectj-version>1.7.4</org.aspectj-version>
@@ -67,6 +67,12 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+		<dependency>
+		   <groupId>com.pos.domain</groupId>
+		   <version>1.0</version>
+		   <artifactId>thdomain</artifactId>
+        </dependency>
+        
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
