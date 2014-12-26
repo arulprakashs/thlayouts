@@ -15,6 +15,7 @@
             <td>ID</td>
             <td>Title</td>
             <td>Text</td>
+            <td>Person</td>
             <td>Created</td>
         </tr>
         </thead>
@@ -22,12 +23,18 @@
         <tr th:if="${messages.empty}">
             <td colspan="4">No messages</td>
         </tr>
-        <tr th:each="message : ${messages}">
+        <!-- <tr th:each="message : ${messages}">
             <td th:text="${message.id}">1</td>
             <td><a href="#" th:text="${message.title}">Title ...</a></td>
             <td th:text="${message.text}">Text ...</td>
             <td th:text="${#calendars.format(message.created)}">July 11, 2012 2:17:16 PM CDT</td>
-        </tr>
+        </tr> -->
+        
+        <tr th:each="item : ${#strings.arraySplit(messages, ',')}">
+        
+                   <td th:text="${item}"/>
+         </tr>
+  
         </tbody>
     </table>
 </div>

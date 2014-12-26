@@ -1,7 +1,6 @@
 package com.pos.message;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
 import java.util.Calendar;
 
@@ -15,6 +14,10 @@ public class Message {
     @NotEmpty
     private String title;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id", nullable = false, referencedColumnName="id")    
+    private Person person;
+    
     @NotEmpty
     private String text;
 
@@ -59,5 +62,19 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the person
+     */
+    public Person getPerson() {
+        return person;
+    }
+
+    /**
+     * @param person the person to set
+     */
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

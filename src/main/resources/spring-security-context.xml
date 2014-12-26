@@ -15,6 +15,8 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
         <security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/signin" access="permitAll" />
 		<security:intercept-url pattern="/signup" access="permitAll" />
+		<security:intercept-url pattern="/dandelion-assets/**" access="permitAll" />
+		<security:intercept-url pattern="/datatablesController/**" access="permitAll" />
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
 	</security:http>
 	
@@ -23,5 +25,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 			<security:password-encoder ref="passwordEncoder" />
 		</security:authentication-provider>
 	</security:authentication-manager>
+	
+	<bean id="personRepository" class="com.pos.message.PersonRepository"/>
 
 </beans>

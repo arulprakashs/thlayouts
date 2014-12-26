@@ -1,6 +1,8 @@
 package com.pos.config;
 
 import static org.springframework.context.annotation.ComponentScan.Filter;
+import com.github.dandelion.datatables.thymeleaf.dialect.DataTablesDialect;
+import com.github.dandelion.thymeleaf.dialect.DandelionDialect;
 import com.google.common.collect.Lists;
 import com.pos.Application;
 import org.springframework.context.MessageSource;
@@ -38,6 +40,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     private static final String RESOURCES_HANDLER = "/resources/";
     private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
 
+    
     @Override
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {
         RequestMappingHandlerMapping requestMappingHandlerMapping = super.requestMappingHandlerMapping();
@@ -76,6 +79,8 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         templateEngine.addTemplateResolver(urlTemplateResolver());
         templateEngine.addDialect(new SpringSecurityDialect());
         templateEngine.addDialect(new TilesDialect());
+        templateEngine.addDialect(new DandelionDialect());
+        templateEngine.addDialect(new DataTablesDialect());
         /*templateEngine.addDialect(new LayoutDialect());*/
         templateEngine.addDialect(new com.pos.dialect.PresentationDialect());
         return templateEngine;
