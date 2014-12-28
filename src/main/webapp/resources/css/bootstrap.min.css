@@ -48,6 +48,11 @@ h1 {
 	font-size: 2em
 }
 
+div #postContent {
+	font-size: 1em;
+	color: #0F4461;
+}
+
 abbr[title] {
 	border-bottom: 1px dotted
 }
