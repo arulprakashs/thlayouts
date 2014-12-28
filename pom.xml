@@ -67,11 +67,11 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-		<dependency>
+		<!-- <dependency>
 		   <groupId>com.pos.domain</groupId>
 		   <version>1.0</version>
 		   <artifactId>thdomain</artifactId>
-        </dependency>
+        </dependency> -->
         
         <!-- Spring -->
         <dependency>

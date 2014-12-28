@@ -16,8 +16,15 @@ public class Message {
     private String title;
 
     @NotEmpty
+    @Lob
+    @Basic (fetch = FetchType.LAZY) 
+    @Column(name="text", columnDefinition = "longtext")
     private String text;
 
+    @OneToOne
+    @JoinColumn(name="id")
+    private Address address;
+    
     @Version
     private Calendar created = Calendar.getInstance();
 
@@ -59,5 +66,13 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

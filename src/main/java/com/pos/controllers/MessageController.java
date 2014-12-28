@@ -2,6 +2,8 @@ package com.pos.controllers;
 
 import com.pos.account.Account;
 import com.pos.account.AccountRepository;
+import com.pos.message.Address;
+import com.pos.message.AddressRepository;
 import com.pos.message.Message;
 import com.pos.message.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,21 +18,27 @@ import java.security.Principal;
 /**
  * Tiles Dialect usage example.
  */
-@Controller
+@Controller 
 @Secured("ROLE_USER")
 class MessageController {
 
     private MessageRepository messageRepository;
+    private AddressRepository addressRepository;
 
     @Autowired
-    public MessageController(MessageRepository messageRepository) {
+    public MessageController(MessageRepository messageRepository,AddressRepository addressRepository) {
         this.messageRepository = messageRepository;
-        init();
+        this.addressRepository = addressRepository;
+        //init();
     }
 
     private void init() {
+        Address address1 = new Address("street 91",520935);
+        Address address2 = new Address("street 92",520935);
         messageRepository.save(new Message("What's up?", "This is a what's up message..."));
         messageRepository.save(new Message("How is going?", "This is a how's going message..."));
+        addressRepository.save(address1);
+        addressRepository.save(address2);
     }
 
     @ModelAttribute("page")
