@@ -1,4 +1,4 @@
-package com.pos.signup;
+package com.pos.forms;
 
 import com.pos.account.Account;
 import org.hibernate.validator.constraints.*;

@@ -1,6 +1,8 @@
-package com.pos.task;
+package com.pos.controllers;
 
 import com.pos.account.UserService;
+import com.pos.task.Task;
+import com.pos.task.TaskRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

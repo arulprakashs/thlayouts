@@ -48,6 +48,11 @@ h1 {
 	font-size: 2em
 }
 
+div #postContent {
+	font-size: 1em;
+	color: #0F4461;
+}
+
 abbr[title] {
 	border-bottom: 1px dotted
 }
@@ -3865,7 +3870,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 @media ( min-width :768px) {
 	.navbar-nav {
 		float: left;
-		margin: 0
+		margin: 0;
+		padding-top: 12px;
 	}
 	.navbar-nav>li {
 		float: left
@@ -4088,7 +4094,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 
 .navbar-inverse {
-	background-color: #5c6e7e;
+	background-color: #0F4461 ;
 	border-color: #080808
 }
 

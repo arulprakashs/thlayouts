@@ -14,13 +14,16 @@ public class Message {
     @NotEmpty
     private String title;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id", nullable = false, referencedColumnName="id")    
-    private Person person;
-    
     @NotEmpty
+    @Lob
+    @Basic (fetch = FetchType.LAZY) 
+    @Column(name="text", columnDefinition = "longtext")
     private String text;
 
+    @OneToOne
+    @JoinColumn(name="id")
+    private Address address;
+    
     @Version
     private Calendar created = Calendar.getInstance();
 
@@ -64,17 +67,11 @@ public class Message {
         this.text = text;
     }
 
-    /**
-     * @return the person
-     */
-    public Person getPerson() {
-        return person;
+    public Address getAddress() {
+        return address;
     }
 
-    /**
-     * @param person the person to set
-     */
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

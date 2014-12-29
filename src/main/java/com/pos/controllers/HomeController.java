@@ -1,4 +1,4 @@
-package com.pos.home;
+package com.pos.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

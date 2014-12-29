@@ -1,6 +1,7 @@
-package com.pos.signup;
+package com.pos.controllers;
 
 import com.pos.account.*;
+import com.pos.forms.SignupForm;
 import com.pos.support.web.*;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.pos.signin;
+package com.pos.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

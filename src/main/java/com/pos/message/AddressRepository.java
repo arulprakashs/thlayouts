@@ -12,9 +12,9 @@ import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
-public class PersonRepository {
+public class AddressRepository {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PersonRepository.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageRepository.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -28,16 +28,16 @@ public class PersonRepository {
 //    }
 
     @Transactional
-    public Person save(Person person) {
-        entityManager.persist(person);
-        return person;
+    public Address save(Address address) {
+        entityManager.persist(address);
+        return address;
     }
 
-    public List<Person> findAll() {
-        return entityManager.createQuery("SELECT p FROM Person p", Person.class).getResultList();
+    public List<Address> findAll() {
+        return entityManager.createQuery("SELECT m FROM Message m", Address.class).getResultList();
     }
 
-    public Person findById(Long id) {
-        return entityManager.find(Person.class, id);
+    public Address findById(Long id) {
+        return entityManager.find(Address.class, id);
     }
 }

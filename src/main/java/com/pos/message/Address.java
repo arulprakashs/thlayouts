@@ -6,27 +6,27 @@ import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 
 @Entity
-public class Person {
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotEmpty
-    private String name;
+    private String street;
 
     @NotNull
-    private int age;
+    private int pincode;
 
     @Version
     private Calendar created = Calendar.getInstance();
 
-    public Person() {
+    public Address() {
     }
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Address(String street, int pincode) {
+        this.street = street;
+        this.pincode = pincode;
     }
 
     public Long getId() {
@@ -45,32 +45,21 @@ public class Person {
         this.created = created;
     }
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
+    public String getStreet() {
+        return street;
     }
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    /**
-     * @return the age
-     */
-    public int getAge() {
-        return age;
+    public int getPincode() {
+        return pincode;
     }
 
-    /**
-     * @param age the age to set
-     */
-    public void setAge(int age) {
-        this.age = age;
+    public void setPincode(int pincode) {
+        this.pincode = pincode;
     }
-     
+
+    
 }
