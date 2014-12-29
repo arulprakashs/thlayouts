@@ -11,8 +11,6 @@
  */
 package com.pos.config;
 
-import com.github.dandelion.datatables.thymeleaf.dialect.DataTablesDialect;
-import com.github.dandelion.thymeleaf.dialect.DandelionDialect;
 import com.pos.Application;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -91,8 +89,6 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         templateEngine.addTemplateResolver(urlTemplateResolver());
         templateEngine.addDialect(new SpringSecurityDialect());
         templateEngine.addDialect(new TilesDialect());
-        templateEngine.addDialect(new DandelionDialect());
-        templateEngine.addDialect(new DataTablesDialect());
         /* templateEngine.addDialect(new LayoutDialect()); */
         templateEngine.addDialect(new com.pos.dialect.PresentationDialect());
         return templateEngine;
