@@ -26,7 +26,7 @@
         <tr th:if="${messages.empty}">
             <td colspan="4">No messages</td>
         </tr>
-        <<tr th:each="message : ${messages}">
+        <tr th:each="message : ${messages}">
             <td th:text="${message.id}">1</td>
             <td><a href="#" th:text="${message.title}">Title ...</a></td>
             <td th:utext="${message.text}">Text ...</td>

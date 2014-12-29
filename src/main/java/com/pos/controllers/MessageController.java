@@ -4,10 +4,6 @@ import com.pos.message.Address;
 import com.pos.message.AddressRepository;
 import com.pos.message.Message;
 import com.pos.message.MessageRepository;
-import java.io.IOException;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -22,9 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller 
 @Secured("ROLE_USER")
 class MessageController {
-
+    
     private MessageRepository messageRepository;
-
     private AddressRepository addressRepository;
 
     @Autowired
@@ -51,19 +46,7 @@ class MessageController {
 
     @RequestMapping(value = "message", method = RequestMethod.GET)
     public String messages(Model model) {  
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            model.addAttribute("messages", mapper.writeValueAsString(messageRepository.findAll()));
-        } catch (JsonGenerationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+            model.addAttribute("messages", messageRepository.findAll());
         // the view will match 'messages/*'; see /WEB-INF/views/message/tiles-defs.xml
         return "message/list";
     }

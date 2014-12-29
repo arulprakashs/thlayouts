@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <!-- Default Project header check -->
+    <module name="RegexpHeader">
+        <!--
+          Singtel header is currently embedded to allow Eclipse configuration to be
+          portable across projects using .checkstyle files containing remote configuration
+          definitions.
+        -->
+        <!--<property name="headerFile" value="${checkstyle.header.file}" />-->
+        <property name="header" value="^/\*\*$\n^ \*
+FileName      : \$Id(.*)\$\n^ \*$\n^ \*
+Copyright Notice: (\W\s*)(20\d{2}(-20\d{2}|,\s*20\d{2})*) -- Confidential and Proprietary$\n^ \*$\n^ \*
+All rights reserved\.$\n^ \*
+This software is the confidential and proprietary information of Ltd$\n^ \*
+\(&quot;Confidential Information&quot;\)\. You shall not disclose such Confidential Information$\n^ \*
+and shall use it only in accordance with the terms of the license agreement you$\n^ \*
+entered into with POS.$\n^ \*/$" />
+        <property name="fileExtensions" value="java" />
+    </module>
+
+    <!-- SuppressionFilter: suppressions should be reviewed periodically -->
+    <module name="SuppressionFilter">
+        <!--<property name="file" value="${checkstyle.suppressions.file}"/> -->
+    </module>
+
+    <!-- Checks for Size Violations. -->
+    <!-- See http://checkstyle.sf.net/config_sizes.html -->
+    <module name="FileLength">
+        <property name="id" value="warningFileLength" />
+        <property name="max" value="1000" />
+    </module>
+    <module name="FileLength">
+        <property name="id" value="neverExceedFileLength" />
+        <property name="max" value="3000" />
+    </module>
+
+    <module name="FileTabCharacter" />
+
+    <!-- Checks whether files end with a new line. -->
+    <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
+    <module name="NewlineAtEndOfFile" />
+
+    <module name="TreeWalker">
+        <property name="tabWidth" value="4" />
+
+        <module name="GenericWhitespace" />
+
+        <!-- Checks for Javadoc comments. -->
+        <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+        <!-- Javadoc is not required on non-interface methods and variables -->
+        <module name="JavadocMethod">
+            <property name="scope" value="protected" />
+            <property name="allowMissingPropertyJavadoc" value="true" />
+        </module>
+        <module name="JavadocType">
+            <property name="scope" value="private" />
+        </module>
+        <module name="JavadocVariable">
+            <property name="scope" value="public" />
+        </module>
+        <!-- all JavaDoc must have the right style, regardless of the scope -->
+        <module name="JavadocStyle">
+            <property name="scope" value="private" />
+        </module>
+
+
+        <!-- Checks for Naming Conventions. -->
+        <!-- See http://checkstyle.sf.net/config_naming.html -->
+        <module name="ConstantName" />
+        <module name="LocalFinalVariableName" />
+        <module name="LocalVariableName" />
+        <module name="MemberName" />
+        <module name="ParameterName" />
+        <module name="StaticVariableName" />
+        <module name="MethodName" />
+        <module name="TypeName" />
+
+        <!-- Checks for imports -->
+        <!-- See http://checkstyle.sf.net/config_import.html -->
+        <module name="AvoidStarImport" />
+        <module name="IllegalImport"/>
+        <module name="RedundantImport" />
+        <module name="UnusedImports" />
+
+        <!--
+            TODO implement this check using an import control file. eg:
+            <module name="ImportControl">
+                <property name="file" value="${checkstyle_config_dir}/import-control.xml" />
+            </module>
+        -->
+        <module name="ImportOrder">
+            <property name="option" value="top" />
+        </module>
+
+        <module name="LineLength">
+            <!-- this number is a compromise between 80 and 133. -->
+            <property name="max" value="160" />
+            <property name="ignorePattern" value="(^import .+;$)|(^ \* FileName      : \$Id(.*)\$$)|(^\s*@.+\(.+\)$)" />
+        </module>
+        <module name="MethodLength" />
+        <module name="ParameterNumber">
+            <property name="max" value="7" />
+        </module>
+
+
+        <!-- Checks for whitespace -->
+        <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+        <!-- Is this useful? Which of these are? -->
+        <module name="EmptyForIteratorPad" />
+        <module name="NoWhitespaceAfter">
+            <property name="tokens" value="ARRAY_INIT,BNOT,DEC,DOT,INC,LNOT,UNARY_MINUS,UNARY_PLUS" />
+        </module>
+        <module name="NoWhitespaceBefore" />
+        <module name="OperatorWrap" />
+        <module name="ParenPad" />
+        <module name="TypecastParenPad" />
+        <!-- No tabs, they make formatting too hard to manage -->
+        <module name="WhitespaceAfter" />
+        <module name="WhitespaceAround" />
+
+
+        <!-- Modifier Checks -->
+        <!-- See http://checkstyle.sf.net/config_modifiers.html -->
+        <!-- These seem unexceptional -->
+        <module name="ModifierOrder" />
+        <module name="RedundantModifier" />
+
+
+        <!-- Checks for blocks. You know, those {}'s -->
+        <!-- See http://checkstyle.sf.net/config_blocks.html -->
+        <module name="EmptyBlock" />
+        <module name="LeftCurly" />
+        <module name="NeedBraces" />
+        <module name="RightCurly" />
+        <!-- allow blocks in switch statements to enhance readability -->
+        <module name="AvoidNestedBlocks">
+            <property name="allowInSwitchCase" value="true" />
+        </module>
+
+        <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- Checks for common coding problems -->
+        <!-- See http://checkstyle.sf.net/config_coding.html -->
+
+        <module name="CovariantEquals" />
+
+        <!--
+          Removed from Checkstyle 5.6 (http://sourceforge.net/p/checkstyle/bugs/682/)
+        <module name="DoubleCheckedLocking" />
+        -->
+
+        <module name="EmptyStatement" />
+        <module name="DeclarationOrder" />
+        <module name="DefaultComesLast" />
+        <module name="EqualsHashCode" />
+        <module name="ExplicitInitialization" />
+        <module name="FallThrough" />
+
+        <!-- Is this one, FinalLocalVariable, useful? -->
+        <!-- feedback says no...although Oliver likes it -->
+        <!-- <module name="FinalLocalVariable"/> -->
+
+        <module name="HiddenField">
+            <property name="ignoreSetter" value="true" />
+        </module>
+        <module name="IllegalCatch">
+            <property name="illegalClassNames"
+                value="java.lang.Throwable, java.lang.NullPointerException" />
+        </module>
+        <module name="IllegalThrows">
+            <property name="illegalClassNames" value="java.lang.Error, java.lang.RuntimeException, java.lang.Throwable" />
+        </module>
+        <module name="IllegalInstantiation">
+            <property name="classes" value="java.lang.Boolean,java.lang.String" />
+        </module>
+
+        <module name="InnerAssignment" />
+        <module name="JUnitTestCase" />
+        <module name="MissingSwitchDefault" />
+        <module name="MissingOverride">
+            <property name="javaFiveCompatibility" value="true" />
+        </module>
+        <module name="ModifiedControlVariable" />
+        <module name="MultipleVariableDeclarations" />
+        <module name="NestedIfDepth">
+            <property name="max" value="4" />
+        </module>
+        <module name="NestedTryDepth">
+            <property name="max" value="3" />
+        </module>
+        <module name="PackageDeclaration" />
+        <module name="ParameterAssignment" />
+        <module name="RedundantThrows">
+            <property name="allowUnchecked" value="true" />
+        </module>
+        <module name="ReturnCount">
+            <property name="max" value="3" />
+        </module>
+        <module name="SimplifyBooleanExpression" />
+        <module name="SimplifyBooleanReturn" />
+        <module name="StringLiteralEquality" />
+        <module name="SuperClone" />
+        <module name="SuperFinalize" />
+        <module name="UnnecessaryParentheses" />
+
+
+        <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- Checks for class design -->
+        <!-- See http://checkstyle.sf.net/config_design.html -->
+
+        <module name="FinalClass" />
+        <module name="HideUtilityClassConstructor"/>
+        <module name="InterfaceIsType" />
+        <module name="MutableException" />
+        <module name="ThrowsCount">
+            <property name="max" value="10" /> <!-- Generous value -->
+        </module>
+        <module name="VisibilityModifier" />
+
+
+        <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- Checks for metrics -->
+        <!-- See http://checkstyle.sf.net/config_metrics.html -->
+
+        <module name="CyclomaticComplexity">
+            <property name="id" value="warningCyclomaticComplexity" />
+            <property name="max" value="10" />
+        </module>
+        <module name="CyclomaticComplexity">
+            <property name="id" value="neverExceedCyclomaticComplexity" />
+            <property name="max" value="20" />
+        </module>
+
+
+        <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- Miscellaneous other checks. -->
+        <!-- See http://checkstyle.sf.net/config_misc.html -->
+        <module name="ArrayTypeStyle" />
+        <!--
+        <module name="TodoComment">
+            <property name="format" value="TODO" />
+        </module>
+        -->
+        <module name="Indentation" />
+        <module name="UpperEll" />
+
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="id" value="consoleOutput" />
+        <property name="format" value="System\.(out)|(err)\.print(ln)?\(" />
+        <property name="message" value="System.out/err. should be replaced with logger debugging." />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="format" value="\.printStackTrace\(\s*\)" />
+        <property name="message"
+            value="printStackTrace directs output to the console and should be replaced with logger debugging." />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="format" value="^\s+.\s+@param\s+Description of the Parameter" />
+        <property name="message"
+            value="Default parameter description text present in the code.  Replace with meaningful description." />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="format" value="^\s+.\s+@return\s+Description of the Return Value" />
+        <property name="message"
+            value="Default return value description text present in the code.  Replace with meaningful description." />
+    </module>
+
+    <module name="RegexpMultiline">
+        <property name="format" value="((public)|(protected))\s+void\s+finalize\(\s*\)" />
+        <property name="message" value="finalize not allowed" />
+    </module>
+
+    <module name="RegexpSingleline">
+        <property name="format" value="\s$" />
+        <property name="message" value="Trailing whitespace not allowed as it causes merge discrepancies" />
+    </module>
+
+</module>

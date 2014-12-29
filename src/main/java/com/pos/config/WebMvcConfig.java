@@ -1,14 +1,23 @@
+/**
+ * FileName      : $Id: WebMvcConfig.java $
+ *
+ * Copyright Notice: ©2004 -- Confidential and Proprietary
+ *
+ * All rights reserved.
+ * This software is the confidential and proprietary information of Ltd
+ * ("Confidential Information"). You shall not disclose such Confidential Information
+ * and shall use it only in accordance with the terms of the license agreement you
+ * entered into with POS.
+ */
 package com.pos.config;
 
-import static org.springframework.context.annotation.ComponentScan.Filter;
 import com.github.dandelion.datatables.thymeleaf.dialect.DataTablesDialect;
 import com.github.dandelion.thymeleaf.dialect.DandelionDialect;
-import com.google.common.collect.Lists;
 import com.pos.Application;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.Ordered;
@@ -30,6 +39,10 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 import org.thymeleaf.templateresolver.UrlTemplateResolver;
 
+/**
+ * @author pos
+ *
+ */
 @Configuration
 @ComponentScan(basePackageClasses = Application.class, includeFilters = @Filter(Controller.class), useDefaultFilters = false)
 class WebMvcConfig extends WebMvcConfigurationSupport {
@@ -40,7 +53,6 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     private static final String RESOURCES_HANDLER = "/resources/";
     private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
 
-    
     @Override
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {
         RequestMappingHandlerMapping requestMappingHandlerMapping = super.requestMappingHandlerMapping();
@@ -81,14 +93,14 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         templateEngine.addDialect(new TilesDialect());
         templateEngine.addDialect(new DandelionDialect());
         templateEngine.addDialect(new DataTablesDialect());
-        /*templateEngine.addDialect(new LayoutDialect());*/
+        /* templateEngine.addDialect(new LayoutDialect()); */
         templateEngine.addDialect(new com.pos.dialect.PresentationDialect());
         return templateEngine;
     }
 
     /**
-     *  Handles all views except for the ones that are handled by Tiles. This view resolver
-     *  will be executed as first one by Spring.
+     * Handles all views except for the ones that are handled by Tiles. This view resolver will be executed as first one
+     * by Spring.
      */
     @Bean
     public ViewResolver thymeleafViewResolver() {
@@ -97,7 +109,9 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         vr.setCharacterEncoding("UTF-8");
         vr.setOrder(Ordered.HIGHEST_PRECEDENCE);
         // all message/* views will not be handled by this resolver as they are Tiles views
-        vr.setExcludedViewNames(new String[]{"message/*"});
+        vr.setExcludedViewNames(new String[] {
+            "message/*"
+        });
         return vr;
     }
 
@@ -117,7 +131,9 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     @Bean
     public ThymeleafTilesConfigurer tilesConfigurer() {
         ThymeleafTilesConfigurer ttc = new ThymeleafTilesConfigurer();
-        ttc.setDefinitions(new String[]{"/WEB-INF/tiles-defs.xml"});
+        ttc.setDefinitions(new String[] {
+            "/WEB-INF/tiles-defs.xml"
+        });
         return ttc;
     }
 

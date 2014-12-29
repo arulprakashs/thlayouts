@@ -26,6 +26,6 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 		</security:authentication-provider>
 	</security:authentication-manager>
 	
-	<bean id="personRepository" class="com.pos.message.PersonRepository"/>
+	<!-- <bean id="personRepository" class="com.pos.message.PersonRepository"/> -->
 
 </beans>

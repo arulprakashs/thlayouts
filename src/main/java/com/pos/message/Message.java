@@ -20,7 +20,7 @@ public class Message {
     @Column(name="text", columnDefinition = "longtext")
     private String text;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id")
     private Address address;
     
