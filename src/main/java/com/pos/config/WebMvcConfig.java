@@ -15,6 +15,7 @@ import com.pos.Application;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -25,6 +26,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
@@ -106,7 +108,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         vr.setOrder(Ordered.HIGHEST_PRECEDENCE);
         // all message/* views will not be handled by this resolver as they are Tiles views
         vr.setExcludedViewNames(new String[] {
-            "message/*"
+            "message/*","tmessage/*"
         });
         return vr;
     }
@@ -143,6 +145,12 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(RESOURCES_HANDLER).addResourceLocations(RESOURCES_LOCATION);
+    }
+    
+    @Override
+    protected void addViewControllers(ViewControllerRegistry registry){
+        registry.addViewController("/fragments/layout");
+        registry.addViewController("/fragments/sidemenu_layout");
     }
 
     @Override

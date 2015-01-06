@@ -48,6 +48,6 @@ class MessageController {
     public String messages(Model model) {  
             model.addAttribute("messages", messageRepository.findAll());
         // the view will match 'messages/*'; see /WEB-INF/views/message/tiles-defs.xml
-        return "message/list";
+        return "tmessage/list";
     }
 }

@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="shortcut icon" type="image/x-icon" href="../../../resources/images/favicon.ico" media="screen" th:href="@{/resources/images/favicon.ico}"/>
+<link rel="stylesheet" type="text/css" href="../../../resources/css/thlayout.css" media="screen" th:href="@{/resources/css/thlayout.css}"/>
+
+</head>
+<body>
+
+<div id="wrapper">
+<div id="header">
+    <a title="Home" name="Home" href="/gdl-open-ui/"><img src="../../../resources/images/banner-graphic.png" th:src="@{/resources/images/banner-graphic.png}"/></a>
+</div>
+
+<div class="topmenu">
+    <ul class="top-navbar top-navbar-left">
+        <li style="height: 40px;" class="active"><a href="/thlayouts/">Home</a></li>
+        <li><a href="/thlayouts/message">Messages</a></li>
+        <li><a href="/thlayouts/task">Tasks</a></li>
+    </ul>
+    <ul class="top-navbar top-navbar-right">        
+        <li><a href="/thlayouts/logout">Logout</a></li>
+    </ul>
+</div>
+
+<div id="menu">
+	<ul id="_menu">
+		<li id="c_giftcardtransaction">
+			<h2>Giftcard Transaction</h2>
+			<ul>
+				<li id="i_menu_findgc"><a title="Find by Giftcard Transaction" href="/gdl-open-ui/giftcardtransactions?gcform">Find by Giftcard Transaction</a></li>
+				<li id="i_giftcardtransaction_list"><a title="List all Giftcard Transactions" href="/gdl-open-ui/giftcardtransactions?page=1&amp;size=10">List all Giftcard Transactions</a></li>
+			</ul>
+		</li>
+		<li id="c_product">
+			<h2>Product</h2>
+			<ul>
+				<li id="i_product_new"><a title="Create new Product" href="/gdl-open-ui/products?form">Create new Product</a></li>
+				<li id="i_product_list"><a title="List all Products" href="/gdl-open-ui/products?page=1&amp;size=10">List all Products</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div id="main">
+
+Colleagues of mine sometimes curse me for my stubbornness in using XML configuration for Spring. Yes, it seems so 2000â€²s but XML has definite advantages:
+
+Configuration is centralized, itâ€™s not scattered among all different components so you can have a nice overview of beans and their wirings in a single place
+If you need to split your files, no problem, Spring let you do that. It then reassembles them at runtime through internal tags or external context files aggregation
+Only XML configuration allows for explicit wiring â€“ as opposed to autowiring. Sometimes, the latter is a bit too magical for my own taste. Its apparent simplicity hides real complexity: not only do we need to switch between by-type and by-name autowiring, but more importantly, the strategy for choosing the relevant bean among all eligible ones escapes but the more seasoned Spring developers. Profiles seem to make this easier, but is relatively new and is known to few
+Last but not least, XML is completely orthogonal to the Java file: thereâ€™s no coupling between the 2 so that the class can be used in more than one context with different configurations
+The sole problem with XML is that you have to wait until runtime to discover typos in a bean or some other stupid boo-boo. On the other side, using Spring IDE plugin (or the integrated Spring Tools Suite) definitely can help you there.
+
+An interesting alternative to both XML and direct annotations on bean classes is JavaConfig, a former separate project embedded into Spring itself since v3.0. It merges XML decoupling advantage with Java compile-time checks. JavaConfig can be seen as the XML file equivalent, only written in Java. The whole documentation is of course available online, but this article will just let you kickstart using JavaConfig. As an example, let us migrate from the following XML file to a JavaConfig
+
+</div>
+
+<div id="footer">
+    <span><a href="/gdl-open-ui/">Home</a></span> | <span><a href="/gdl-open-ui/login">Login</a></span>
+</div>
+
+</div>
+
+</body>
+</html>
+
